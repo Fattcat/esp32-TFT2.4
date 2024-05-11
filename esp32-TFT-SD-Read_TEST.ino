@@ -3,6 +3,10 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_ST7789.h>
 
+// WEB PRE LEPSIE FARBY KODOV ktore sa definuju : https://rgbcolorpicker.com/565
+// napriklad     : #define biela 0xFFFF
+// alebo fialova : #define fialova 0xa7d
+
 // DEF OF TFT PINS for --> "ESP32 Board"
 #define TFT_CS    15
 #define TFT_DC     2
@@ -51,6 +55,8 @@ void displayFileContent(const char* filename) {
     tft.fillScreen(ST77XX_BLACK); // Clear the screen
     tft.setCursor(0, 0); // Set cursor to top-left corner
 
+    tft.setTextColor(ST77XX_GREEN, fialova); // tu je ta fialova
+    
     // Read and print each line of the file
     while (file.available()) {
       String line = file.readStringUntil('\n');
