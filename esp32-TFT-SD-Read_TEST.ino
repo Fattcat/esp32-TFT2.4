@@ -5,8 +5,8 @@
 
 // WEB PRE LEPSIE FARBY KODOV ktore sa definuju : https://rgbcolorpicker.com/565
 // napriklad     : #define biela 0xFFFF
-// alebo fialova : #define fialova 0xa7d
-
+// alebo fialova : #define fialova 0x8239
+#define fialova 0x8239
 // DEF OF TFT PINS for --> "ESP32 Board"
 #define TFT_CS    15
 #define TFT_DC     2
