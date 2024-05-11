@@ -32,7 +32,7 @@ void setup() {
   tft.invertDisplay(0);
   
   // Initialize SD card
-  if (!SD.begin()) {
+  if (!SD.begin(SD_CS)) {
     Serial.println("SD card initialization failed!");
     return;
   }
