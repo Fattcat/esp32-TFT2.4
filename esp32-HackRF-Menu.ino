@@ -1,7 +1,7 @@
 #include <SPI.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_ST7789.h>
-// Fixed Buttons ...
+// Fixed 8 fields
 #define TFT_CS     15  // Pin CS
 #define TFT_RST    4   // Pin RST
 #define TFT_DC     2   // Pin DC
@@ -34,10 +34,6 @@ void setup() {
   tft.setRotation(2);                // Nastav rotáciu displeja (0-3)
   tft.fillScreen(ST77XX_WHITE);      // Vyplň obrazovku bielou farbou
 
-  // Ak máte pin pre LED podsvietenie, tu ho môžete nastaviť
-  // pinMode(TFT_LED, OUTPUT);
-  // digitalWrite(TFT_LED, HIGH); // Zapni podsvietenie
-
   drawMenu(); // Vykresli menu s obdĺžnikmi
 }
 
@@ -61,21 +57,21 @@ void loop() {
 }
 
 void drawMenu() {
-  int rectWidth = TFT_WIDTH / 2;
-  int rectHeight = TFT_HEIGHT / 8;
+  int rectWidth = TFT_WIDTH / 2;  // Šírka obdĺžnika - 2 obdĺžniky vedľa seba
+  int rectHeight = TFT_HEIGHT / 4; // Výška obdĺžnika - 4 riadky obdĺžnikov
 
   for (int i = 0; i < 8; i++) {
-    int xPos = (i % 2) * rectWidth;
-    int yPos = (i / 2) * rectHeight;
+    int xPos = (i % 2) * rectWidth;  // Vypočítaj x-ovú pozíciu obdĺžnika
+    int yPos = (i / 2) * rectHeight; // Vypočítaj y-ovú pozíciu obdĺžnika
 
     if (i == selectedRect) {
-      tft.fillRect(xPos, yPos, rectWidth, rectHeight, ST77XX_GREEN); // Zafarbene vybranej farbou
+      tft.fillRect(xPos, yPos, rectWidth, rectHeight, ST77XX_GREEN); // Vybraný obdĺžnik zelený
     } else {
-      tft.fillRect(xPos, yPos, rectWidth, rectHeight, ST77XX_WHITE); // Zvyšné biele obdĺžniky
+      tft.fillRect(xPos, yPos, rectWidth, rectHeight, ST77XX_WHITE); // Ostatné biele
       tft.drawRect(xPos, yPos, rectWidth, rectHeight, ST77XX_BLACK); // Čierne okraje
     }
 
-    int textX = xPos + (rectWidth - 6 * 6) / 2; // Oprava pozície textu
+    int textX = xPos + (rectWidth - 6 * 6) / 2; // Pozícia textu
     int textY = yPos + (rectHeight - 8) / 2;
 
     tft.setTextColor(ST77XX_BLACK);
