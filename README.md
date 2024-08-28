@@ -13,4 +13,5 @@ TFT 2.4 Inch Display - ESP32
 - MISO (SDO)  -->	D19
 
 - ## Optional for SD Card TFT_SD Slot
-- SD_CS --> esp32 D5
+- ## SD_CS --> esp32 D5 (! NOTE : USE SMALL SIZE OF SD Card Best is 8 GB Storage !)
+- IF U GET ERROR WITH SD Card INIT, IT CAN BE CAUSED BY 16 GH or 32 GB SD Storage ! 
