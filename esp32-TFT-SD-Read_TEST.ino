@@ -15,7 +15,9 @@
 #define TFT_MISO  19
 #define TFT_MOSI  23
 
-#define SD_CS     5   // Vyberte volný GPIO pin pro SD_CS
+#define SD_CS     5   // Vyberte volný GPIO pin pro SD_CS (USE 8 GB SD Card !) 
+// SD_CS --> esp32 D5 (! NOTE : USE SMALL SIZE OF SD Card Best is 8 GB Storage !)
+// IF U GET ERROR WITH SD Card INIT, IT CAN BE CAUSED BY 16 GH or 32 GB SD Storage ! 
 
 //RESOLUTION OF TFT DISPLAY 2.4" 240x320px
 #define TFT_WIDTH  240
